@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VISION IS ALL YOU NEED — ahazaza43</title>
+  <meta name="description" content="Aimé Christian Tuyishime — a Kigali-based ML engineer proving AI storytelling can come from anywhere. Ahazaza Entertainment Ltd. • Kigali, Rwanda." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="VISION IS ALL YOU NEED" />
+  <meta property="og:description" content="ahazaza43 is a solo, Kigali-based Gen-AI storytelling initiative. Aimé Christian Tuyishime is a ML engineer proving AI storytelling can come from anywhere." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#000;
+      --text:#F5F5F7;
+      --muted:rgba(235,235,245,.72);
+      --disabled:rgba(235,235,245,.38);
+      --blue:#0A84FF;
+
+      --glass:rgba(28,28,30,.55);
+      --glassBorder:rgba(235,235,245,.10);
+      --surface:rgba(28,28,30,.62);
+      --surfaceSoft:rgba(28,28,30,.40);
+      --surfaceStrong:rgba(44,44,46,.72);
+
+      --max:1100px;
+      --padX:clamp(18px, 3.5vw, 44px);
+      --padY:clamp(34px, 6vw, 90px);
+      --radius:28px;
+      --ease:cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 50% -220px, rgba(10,132,255,.14), transparent 62%),
+        radial-gradient(1100px 700px at 50% 120%, rgba(255,255,255,.04), transparent 62%),
+        var(--bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x:hidden;
+      line-height:1.35;
+    }
+
+    a{ color:inherit; text-decoration:none; }
+    a:focus-visible, button:focus-visible{
+      outline: 3px solid rgba(10,132,255,.35);
+      outline-offset: 3px;
+      border-radius: 14px;
+    }
+
+    /* Header */
+    .header{
+      position: fixed;
+      top:0;
+      left:0;
+      right:0;
+      z-index:50;
+      background: var(--glass);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--glassBorder);
+    }
+    .headerInner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 12px var(--padX);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+
+    .brand{ display:flex; align-items:center; gap: 10px; min-width:0; }
+    .mark{
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+      object-fit: cover;
+      border: 1px solid var(--glassBorder);
+    }
+    .brandText{ display:flex; flex-direction:column; gap:2px; min-width:0; }
+    .brandText b{ font-size: 13px; letter-spacing: .18px; }
+    .brandText span{ font-size: 12px; color: var(--muted); white-space: nowrap; overflow:hidden; text-overflow: ellipsis; max-width: 52vw; }
+
+    .links{ display:flex; align-items:center; gap: 14px; flex-wrap:wrap; justify-content:flex-end; }
+    .link{
+      font-size: 12.5px;
+      color: var(--muted);
+      letter-spacing: .15px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      transition: background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+    }
+    .linkIcon{
+      padding: 8px 8px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .linkX{
+      font-weight:700;
+      font-size: 16px;
+    }
+    .link:hover{ background: rgba(58,58,60,.55); color: var(--text); transform: translateY(-1px); }
+    .linkPrimary{ color: var(--text); }
+
+    .social-links{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+    }
+    .social-links a{
+      color: var(--text);
+      padding: 6px;
+      border-radius: 999px;
+      transition: background .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+    }
+    .social-links a:hover{ background: rgba(58,58,60,.55); transform: translateY(-1px); }
+    .social-links svg{ width: 22px; height: 22px; fill: currentColor; display: block; }
+
+    /* Layout */
+    main{
+      width:100%;
+      padding-top: 56px;
+    }
+    .section{ padding: 0; }
+    .inner{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: var(--padY) var(--padX);
+    }
+
+    /* Clear separation WITHOUT lines */
+    .section + .section .inner{ padding-top: clamp(44px, 7vw, 110px); }
+
+    /* Type */
+    h1{
+      margin:0 0 18px;
+      font-size: clamp(40px, 6vw, 76px);
+      letter-spacing: -1.2px;
+      line-height: 1.02;
+    }
+    .h2{
+      margin:0;
+      font-size: clamp(28px, 3.4vw, 44px);
+      letter-spacing: -0.7px;
+      line-height: 1.08;
+    }
+    .lead{
+      margin:0;
+      font-size: clamp(16px, 1.8vw, 22px);
+      color: var(--muted);
+      max-width: 62ch;
+    }
+    .p{
+      margin:0;
+      font-size: clamp(15px, 1.4vw, 18px);
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    .stack{ display:flex; flex-direction:column; gap: 18px; }
+    .stackLg{ display:flex; flex-direction:column; gap: 22px; }
+
+    /* Buttons */
+    .ctaRow{ display:flex; gap: 12px; flex-wrap:wrap; margin-top: 22px; }
+    .btn{
+      padding: 12px 14px;
+      border-radius: 999px;
+      font-weight: 650;
+      letter-spacing: .15px;
+      border: 1px solid var(--glassBorder);
+      background: var(--surface);
+      color: var(--text);
+      transition: transform .2s var(--ease), background .2s var(--ease), border-color .2s var(--ease);
+    }
+    .btn:hover{ transform: translateY(-1px); background: var(--surfaceStrong); border-color: rgba(235,235,245,.16); }
+    .btnPrimary{ background: var(--blue); border-color: rgba(10,132,255,.35); color:#fff; box-shadow: 0 18px 55px rgba(10,132,255,.22); }
+    .btnPrimary:hover{ background:#0a74ff; }
+
+    /* Break-In */
+    .breakGrid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: clamp(18px, 3vw, 44px);
+      align-items:start;
+    }
+    @media (max-width: 940px){
+      .breakGrid{ grid-template-columns: 1fr; }
+    }
+
+    .frame{
+      margin-top: 14px;
+      border-radius: var(--radius);
+      overflow:hidden;
+      border: 1px solid var(--glassBorder);
+      background: var(--surfaceSoft);
+      box-shadow: 0 18px 70px rgba(0,0,0,.18);
+    }
+    .placeholder{
+      aspect-ratio: 16/9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 26px;
+      color: var(--muted);
+      text-align:center;
+    }
+
+    .steps{ display:grid; gap: 18px; }
+    .stepCard{
+      border: 1px solid var(--glassBorder);
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 16px 16px;
+    }
+    .stepCard b{ display:block; font-size: 16px; letter-spacing: -0.2px; margin-bottom: 8px; }
+    .stepCard p{ margin:0; color: var(--muted); font-size: 15.5px; }
+
+    /* Footer */
+    footer{
+      padding: 38px var(--padX) 60px;
+      max-width: var(--max);
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 13px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      border-top: 1px solid var(--glassBorder);
+    }
+    footer a{ color: var(--blue); }
+    footer .social-links a{ color: var(--text); }
+
+    /* Extra bottom space for last CTA */
+    .bottomPad{ padding-bottom: clamp(90px, 12vw, 190px) !important; }
+
+    @media (max-width: 560px){
+      :root{ --padY: clamp(28px, 7vw, 70px); }
+      .brandText span{ max-width: 62vw; }
+      .stepCard p{ font-size: 15px; }
+      .linkNav{ display:none; }
+      .links{ gap:10px; }
+    }
+
+    /* Toast */
+    .toast{
+      position:fixed;
+      left:50%;
+      top:18px;
+      transform:translateX(-50%) translateY(-8px);
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--surfaceStrong);
+      border: 1px solid var(--glassBorder);
+      font-size: 13px;
+      color: var(--text);
+      opacity:0;
+      pointer-events:none;
+      transition: opacity .18s var(--ease), transform .18s var(--ease);
+      z-index:60;
+    }
+    .toastVisible{
+      opacity:1;
+      transform:translateX(-50%) translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .btn:hover{ transform:none; }
+      .link:hover{ transform:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="headerInner">
+      <div class="brand">
+        <img class="mark" src="logo.png" alt="ahazaza43 logo" />
+        <div class="brandText">
+          <b>A43</b>
+        </div>
+      </div>
+
+      <nav class="links" aria-label="Navigation">
+        <a class="link linkNav" href="#vision">Vision</a>
+        <a class="link linkNav" href="#breakin">Break-In</a>
+        <a class="link linkNav" href="#about">About</a>
+        <a class="link linkNav" href="#collab">Collaborate</a>
+        <span style="width:10px; height:10px; display:inline-block;"></span>
+        <div class="social-links" aria-label="Social Media Links">
+          <a href="https://www.youtube.com/@ahazaza43" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://x.com/ahazaza43" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+          </a>
+          <a href="https://www.instagram.com/ahazaza" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@ahazaza43" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- VISION -->
+    <section class="section" id="vision">
+      <div class="inner stackLg">
+        <h1>VISION IS ALL YOU NEED.</h1>
+
+        <h2 class="h2">
+          A storytelling channel.
+          <br />Starting small.
+          <br />Growing ambitious.
+        </h2>
+
+        <p class="lead">
+          <b>ahazaza43</b> explores AI filmmaking to create educative and inspiring work — new perspectives, “untold” stories, and a future that feels exciting and possible.
+        </p>
+
+        <p class="p">
+          <b>Vision</b> — inspiration for a greater future, with real power in our hands to build it.
+        </p>
+
+        <div class="ctaRow">
+          <a class="btn btnPrimary" href="https://www.youtube.com/@ahazaza43" target="_blank" rel="noreferrer">Subscribe</a>
+          <a class="btn" href="#about">About</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- BREAK-IN -->
+    <section class="section" id="breakin">
+      <div class="inner breakGrid">
+        <div class="stack">
+          <h2 class="h2">My first project</h2>
+          <h2 class="h2">“Break-In”</h2>
+          <p class="p">
+            A fresh football is a fresh idea. Left untouched, it gets forgotten. With a pro toolkit, it’s shaped, polished, and becomes big-game ready.
+          </p>
+
+          <div class="frame" aria-label="Break-In video">
+            <div class="placeholder" id="breakInEmbed">
+              <div>
+                <div style="font-weight:700; color:var(--text); font-size:16px;">Video embed</div>
+                <div style="margin-top:8px;">Paste the YouTube link in the script to activate.</div>
+                <div style="margin-top:10px; color:var(--disabled); font-size:13px;">Coming soon</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="steps">
+          <div class="stepCard">
+            <b>1) The metaphor</b>
+            <p>Fresh football ↔ fresh idea. Break-in ↔ becoming story-ready. The toolkit ↔ Artlist AI.</p>
+          </div>
+          <div class="stepCard">
+            <b>2) The proof</b>
+            <p>Premium realism and finish — built fast, from Kigali — by a first-time creator.</p>
+          </div>
+          <div class="stepCard">
+            <b>3) The point</b>
+            <p>AI storytelling can come from anywhere. Vision is now a real entry ticket to creation.</p>
+          </div>
+          <div class="stepCard">
+            <b>4) What’s next</b>
+            <p>Trailer → short film → full-length film → TV show. Weekly drops while I learn fast.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="inner stackLg">
+        <h2 class="h2">About</h2>
+        <p class="p">
+          I’m <b>Aimé Christian Tuyishime</b> — a Kigali-based machine-learning engineer. I’ve spent years building models across industries, from agriculture to finance.
+        </p>
+        <p class="p">
+          This is my creative break-in: applying technical rigor to storytelling — and proving that with Gen-AI, a non-artist can ship premium work from anywhere.
+        </p>
+        <p class="p">
+          Parent company: <b>Ahazaza Entertainment Ltd. • <a href="https://www.google.com/search?q=Kigali%2C+Rwanda" target="_blank" rel="noreferrer" style="color:var(--blue)">Kigali, Rwanda</a></b>
+        </p>
+      </div>
+    </section>
+
+    <!-- COLLAB -->
+    <section class="section" id="collab">
+      <div class="inner stackLg bottomPad">
+        <h2 class="h2">Collaborate</h2>
+        <p class="p">
+          Brands, filmmakers, voice actors, musicians, editors, VFX, AI creators, nonprofits — if it matters, let’s tell it well.
+        </p>
+        <div class="ctaRow">
+          <a id="copyEmailBtn" class="btn btnPrimary" href="mailto:ahazaza43@gmail.com?subject=Collaboration%20with%20ahazaza43" target="_blank" rel="noreferrer">Email: ahazaza43@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Ahazaza Entertainment Ltd. All Rights Reserved.
+    </footer>
+  </main>
+
+  <div id="emailToast" class="toast" role="status" aria-live="polite">
+    Email copied successfully
+  </div>
+
+  <script>
+    // Optional Break-In embed (kept simple; no scroll effects)
+    const BREAK_IN_YOUTUBE_URL = "https://youtu.be/KlPUgrV_Q-o"; // Break-In video
+
+    function getYouTubeId(url){
+      try{
+        const u = new URL(url);
+        if (u.hostname.includes("youtu.be")) return u.pathname.replace("/", "");
+        if (u.hostname.includes("youtube.com")){
+          if (u.searchParams.get("v")) return u.searchParams.get("v");
+          const parts = u.pathname.split("/").filter(Boolean);
+          const idx = parts.indexOf("shorts");
+          if (idx !== -1 && parts[idx+1]) return parts[idx+1];
+        }
+      }catch(e){}
+      return null;
+    }
+
+    (function initBreakIn(){
+      if(!BREAK_IN_YOUTUBE_URL) return;
+      const id = getYouTubeId(BREAK_IN_YOUTUBE_URL);
+      if(!id) return;
+      const box = document.getElementById('breakInEmbed');
+      if (box){
+        box.innerHTML = `
+          <iframe
+            width="100%"
+            height="100%"
+            style="border:0; display:block; aspect-ratio:16/9;"
+            src="https://www.youtube.com/embed/${id}"
+            title="Break-In"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        `;
+      }
+    })();
+
+    (function initCopyEmail(){
+      var btn = document.getElementById('copyEmailBtn');
+      var toast = document.getElementById('emailToast');
+      var hideTimer;
+      if(!btn || !navigator.clipboard || !navigator.clipboard.writeText) return;
+      btn.addEventListener('click', function(e){
+        e.preventDefault();
+        navigator.clipboard.writeText('ahazaza43@gmail.com').then(function(){
+          if(!toast) return;
+          toast.classList.add('toastVisible');
+          clearTimeout(hideTimer);
+          hideTimer = setTimeout(function(){
+            toast.classList.remove('toastVisible');
+          }, 2000);
+        }).catch(function(){});
+      });
+    })();
+  </script>
+</body>
+</html>
